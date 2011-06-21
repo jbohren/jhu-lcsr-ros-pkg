@@ -1,2 +1,0 @@
- * [StackList ROS stacks hosted by this project]
- * [PackageList ROS packages hosted by this project]
