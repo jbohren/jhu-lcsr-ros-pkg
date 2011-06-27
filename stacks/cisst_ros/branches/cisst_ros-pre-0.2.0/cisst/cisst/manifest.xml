@@ -40,9 +40,7 @@
   <rosdep name="zeroc-ice"/>
 
   <export>
-    <cpp
-      cflags="-I${prefix}/include"
-      />
+    <cpp cflags="-I${prefix}/include"/>
     <!--
       lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstStereoVisionQt -lcisstStereoVision -lcisstVectorFLTK -lcisstVectorQt -lcisstMultiTaskQt -lcisstCommonQt -lcisstRobot -lcisstDevices -lcisstParameterTypes -lcisstMultiTask -lcisstVectorFLTK -lcisstVector -lcisstOSAbstraction -lcisstCommon -lIce -lxml2"/-->
     <rosdoc config="rosdoc.yaml"/>

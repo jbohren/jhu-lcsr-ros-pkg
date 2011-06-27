@@ -10,6 +10,10 @@
   <url>http://ros.org/wiki/cisst_common_qt</url>
 
   <depend package="cisst_common"/>
+
+  <export>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstCommonQt"/>
+  </export>
 </package>
 
 

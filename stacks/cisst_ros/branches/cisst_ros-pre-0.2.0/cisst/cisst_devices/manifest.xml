@@ -15,6 +15,10 @@
   <depend package="cisst_multi_task"/>
   <depend package="cisst_parameter_types"/>
   <depend package="cisst_robot"/>
+
+  <export>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstDevices"/>
+  </export>
 </package>
 
 

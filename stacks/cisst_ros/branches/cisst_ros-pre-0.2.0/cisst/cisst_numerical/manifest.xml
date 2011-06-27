@@ -12,6 +12,10 @@
   <depend package="cisst_common"/>
   <depend package="cisst_vector"/>
 
+  <export>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstNumerical"/>
+  </export>
+
 </package>
 
 
