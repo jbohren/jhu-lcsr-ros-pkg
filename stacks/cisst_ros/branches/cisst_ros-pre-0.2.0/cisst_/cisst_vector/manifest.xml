@@ -1,0 +1,14 @@
+<package>
+  <description brief="cisst_vector">
+
+     cisst_vector
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_vector</url>
+
+</package>
+
+

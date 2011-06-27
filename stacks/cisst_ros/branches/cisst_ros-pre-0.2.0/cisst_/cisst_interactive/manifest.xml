@@ -1,0 +1,14 @@
+<package>
+  <description brief="cisst_interactive">
+
+     cisst_interactive
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_interactive</url>
+
+</package>
+
+

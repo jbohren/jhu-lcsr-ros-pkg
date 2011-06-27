@@ -1,0 +1,14 @@
+<package>
+  <description brief="cisst_os_abstraction">
+
+     cisst_os_abstraction
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_os_abstraction</url>
+
+</package>
+
+
