@@ -4,11 +4,12 @@
      cisst_vector
 
   </description>
-  <author>Jonathan Bohren</author>
-  <license>BSD</license>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cisst_vector</url>
 
+  <depend package="cisst_common"/>
 </package>
 
 
