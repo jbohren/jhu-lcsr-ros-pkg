@@ -1,5 +1,3 @@
 #summary List of stacks
 
-= Stacks =
-
  * [cisst_ros cisst_ros] - CISST library package and ROS interfaces
