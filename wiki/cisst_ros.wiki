@@ -1,6 +1,7 @@
 #summary CISST Library integration with ROS
 
-<wiki:toc max_depth="1" />
+==Table of Contents==
+<wiki:toc max_depth="3"/>
 
 ==Introduction==
 The cisst_ros stack currently provides two functionalities:
