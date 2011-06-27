@@ -12,10 +12,9 @@ The cisst_ros stack currently provides two functionalities:
 The cisst_ros stack can be installed locally by checking out the stack directly from svn.
 
 ===Releases===
-====cisst_ros-0.1.1 (latest)====
-{{{
-svn checkout http://jhu-lcsr-ros-pkg.googlecode.com/svn/stacks/cisst_ros/tags/cisst_ros-0.1.1 cisst_ros
-}}}
+
+|| *Version* || *Checkout Command* ||
+|| cisst_ros-0.1.1 (latest) || `svn checkout http://jhu-lcsr-ros-pkg.googlecode.com/svn/stacks/cisst_ros/tags/cisst_ros-0.1.1 cisst_ros` ||
 
 ===For Developers===
 See [http://code.google.com/p/jhu-lcsr-ros-pkg/source/checkout developer checkout].
