@@ -4,11 +4,17 @@
      cisst_devices
 
   </description>
-  <author>Jonathan Bohren</author>
-  <license>BSD</license>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cisst_devices</url>
 
+  <depend package="cisst_comon"/>
+  <depend package="cisst_vector"/>
+  <depend package="cisst_os_abstraction"/>
+  <depend package="cisst_multi_task"/>
+  <depend package="cisst_parameter_types"/>
+  <depend package="cisst_robot"/>
 </package>
 
 

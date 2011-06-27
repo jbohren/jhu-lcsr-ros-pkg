@@ -4,11 +4,14 @@
      cisst_robot
 
   </description>
-  <author>Jonathan Bohren</author>
-  <license>BSD</license>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cisst_robot</url>
 
+  <depend package="cisst_common"/>
+  <depend package="cisst_vector"/>
+  <depend package="cisst_numerical"/>
 </package>
 
 
