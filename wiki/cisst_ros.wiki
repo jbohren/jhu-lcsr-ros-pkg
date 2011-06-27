@@ -1,6 +1,9 @@
 #summary CISST Library integration with ROS
 
 ==Introduction==
+The cisst_ros stack currently provides two functionalities:
+ * A ROS package wrapping the [https://trac.lcsr.jhu.edu/cisst CISST libaries]
+ * ROS packages that aide in the integration of CISST components with ROS
 
 ==Download & Install==
 The cisst_ros stack can be installed locally by checking out the stack directly from svn.
@@ -13,3 +16,13 @@ svn checkout http://jhu-lcsr-ros-pkg.googlecode.com/svn/trunk/stacks/cisst_ros/t
 
 ===For Developers===
 See [http://code.google.com/p/jhu-lcsr-ros-pkg/source/checkout developer checkout].
+
+==Building==
+After checking out a version of the cisst_ros package, make sure all the necessary system dependencies are installed by executing:
+{{{
+rosdep install cisst
+}}}
+Once the system dependencies are installed, you can build the cisst and cisst_ros_integration packages by executing:
+{{{
+rosmake cisst_ros
+}}}
