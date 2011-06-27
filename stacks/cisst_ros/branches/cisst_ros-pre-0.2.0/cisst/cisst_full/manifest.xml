@@ -1,0 +1,30 @@
+<package>
+  <description brief="cisst_full">
+
+     cisst_full
+
+  </description>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_full</url>
+
+  <depend package="cisst_common"/>
+  <depend package="cisst_common_qt"/>
+  <depend package="cisst_devices"/>
+  <depend package="cisst_interactive"/>
+  <depend package="cisst_multi_task"/>
+  <depend package="cisst_multi_task_qt"/>
+  <depend package="cisst_numerical"/>
+  <depend package="cisst_os_abstraction"/>
+  <depend package="cisst_parameter_types"/>
+  <depend package="cisst_robot"/>
+  <depend package="cisst_stereo_vision"/>
+  <depend package="cisst_stereo_vision_qt"/>
+  <depend package="cisst_vector"/>
+  <depend package="cisst_vector_fltk"/>
+  <depend package="cisst_vector_qt"/>
+
+</package>
+
+
