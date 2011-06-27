@@ -1,0 +1,14 @@
+<package>
+  <description brief="cisst_common">
+
+     cisst_common
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_common</url>
+
+</package>
+
+
