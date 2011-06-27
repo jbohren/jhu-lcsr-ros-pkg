@@ -9,7 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/cisst_devices</url>
 
-  <depend package="cisst_comon"/>
+  <depend package="cisst_common"/>
   <depend package="cisst_vector"/>
   <depend package="cisst_os_abstraction"/>
   <depend package="cisst_multi_task"/>

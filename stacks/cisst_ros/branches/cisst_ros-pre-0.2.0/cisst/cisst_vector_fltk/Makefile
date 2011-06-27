@@ -2,7 +2,7 @@
 
 all:
 	mkdir -p $(shell rospack find cisst_vector_fltk)/lib
-	cp $(shell rospack find cisst)/lib/libcisstVectorFltk.a $(shell rospack find cisst_vector_fltk)/lib
+	cp $(shell rospack find cisst)/lib/libcisstVectorFLTK.a $(shell rospack find cisst_vector_fltk)/lib
 	touch ROS_NOBUILD
 
 clean:
