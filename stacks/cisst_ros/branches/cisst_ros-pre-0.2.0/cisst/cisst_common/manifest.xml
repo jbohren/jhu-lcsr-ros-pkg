@@ -13,7 +13,6 @@
 
   <export>
     <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstCommon -lIce -lxml2"/>
-    <rosdoc config="rosdoc.yaml"/>
   </export>
 </package>
 
