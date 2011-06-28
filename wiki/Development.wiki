@@ -9,6 +9,10 @@ The repository contains both loose ROS packages and ROS packages that are childr
 
 Note that the entire collection of loose packages shares common tags, branches, and trunk directories, whereas each stack has its own set.
 
+== Checking out ==
+
+Checking out the repository is explained [http://code.google.com/p/jhu-lcsr-ros-pkg/source/checkout here]. Commit access is given through secure http (https) protocol, and Google Code will generate a random password for you to use with your Google Code account. If you have a secure-password caching system like the [http://live.gnome.org/GnomeKeyring Gnome Keyring], and have not disabled password caching, svn should cache this password.
+
 == Loose Package Development ==
 
 ROS packages that are intended to be shared, but not necessarily kept to a strict versioning cycle, and do not immediately belong to any stack can be stored as loose packages. These packages are labeled as _UNSTABLE_ on their development pages. Development practices for these packages is basically up to the whim of the package's owner.
