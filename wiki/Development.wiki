@@ -11,7 +11,7 @@ Note that the entire collection of loose packages shares common tags, branches, 
 
 == Checking Out for Development ==
 
-Checking out the repository is explained [http://code.google.com/p/jhu-lcsr-ros-pkg/source/checkout here]. Commit access is given through secure http (https) protocol, and Google Code will generate a random password for you to use with your Google Code account. If you have a secure-password caching system like the [http://live.gnome.org/GnomeKeyring Gnome Keyring], and have not disabled password caching, svn should cache this password.
+Checking out the repository is explained [http://code.google.com/p/jhu-lcsr-ros-pkg/source/checkout here]. Commit access is given through secure http (https), and Google Code will generate a random password for you to use with your Google Code account. If you have a secure-password caching system like the [http://live.gnome.org/GnomeKeyring Gnome Keyring], and have not disabled password caching, svn should cache this password.
 
 == Loose Package Development ==
 
