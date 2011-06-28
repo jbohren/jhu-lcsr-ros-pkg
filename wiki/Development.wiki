@@ -61,7 +61,7 @@ After a stack has reached 1.0.0 status, we can follow an "odd/even" development 
 
 During an _odd cycle_, new features are developed, tested, and refined, and during an _even cycle_, the pre-1.0.0 development process is followed.
 
-If a dramatic change in the API is changed, or enough even/odd cycles have happened, the major version is incremented. 
+If a dramatic change in the API is made, or enough even/odd cycles have happened, the major version is incremented. 
 
 == Branching HOWTO ==
 Branching in svn is not scary (any more). Branches are just copies of code in one part of the repository to some other part of the repository.
