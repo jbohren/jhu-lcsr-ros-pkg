@@ -1,5 +1,8 @@
 #summary One-sentence summary of this page.
 
+== Introduction ==
+This page includes development guidelines and useful practices, including [http://code.google.com/p/jhu-lcsr-ros-pkg/wiki/Development#Branching_HOWTO a review of branching with svn].
+
 == Table Of Contents ==
 <wiki:toc max_depth="4" />
 
