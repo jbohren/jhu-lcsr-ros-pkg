@@ -6,14 +6,8 @@
 
     --------------------------------------------------------------------------------
 
-    TODO:
-      [ ] Make separate build targets and proxy ROS packages instead of the single monolithic cisst ROS package, so that CISST libraries do not ALL have to be built. This can be done by building the libraries one (or more) at a time, while obeying the dependencies and installing them into different ROS packages. Then, when a user wishes to use just _part_ of CISST without changing the CISST build configuration, he or she can add only the relevant parts to his or her manifest.xml.
-
-      [ ] Update doxygen config file (lots of old vars in there) "doxygen -u"
-
-    --------------------------------------------------------------------------------
-
     Changelist
+      06-27-11: Created proxy packages for individual cisst libraries Tagged v0.1.2
       06-14-11: Pushed fixes to build system and docs upstream Tagged v0.1.1
       06-10-11: Initial version v0.1.0
 

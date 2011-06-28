@@ -1,0 +1,23 @@
+<package>
+  <description brief="cisst_parameter_types">
+
+     cisst_parameter_types
+
+  </description>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_parameter_types</url>
+
+  <depend package="cisst_common"/>
+  <depend package="cisst_vector"/>
+  <depend package="cisst_os_abstraction"/>
+  <depend package="cisst_multi_task"/>
+  <depend package="cisst_robot"/>
+
+  <export>
+    <cpp lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstParameterTypes"/>
+  </export>
+</package>
+
+
