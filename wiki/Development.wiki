@@ -96,7 +96,7 @@ $> svn commit -m "Merging changes from trunk into some_stack-an_id branch"
 }}} 
 
 === Merging your branch back into trunk ===
-Once you are satisfied with the changes you've made to your branch, you can merge your changes back into trunk. Once you've committed the last changeshis is done like so:
+Once you are satisfied with the changes you've made to your branch, you can merge your changes back into trunk, and made sure your branch [http://code.google.com/p/jhu-lcsr-ros-pkg/wiki/Development#Keeping_your_branch_up_to_date has the latest changes from trunk] (see the previous section). Once you've committed the last changes to your branch, this is done like so:
 
 Check out the trunk (if necessary) and navigate into it:
 {{{
