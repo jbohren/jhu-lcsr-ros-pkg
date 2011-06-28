@@ -2,7 +2,7 @@
 
 ==Introduction==
 The cisst_ros stack currently provides two functionalities:
- * A ROS package wrapping the [https://trac.lcsr.jhu.edu/cisst CISST libaries]
+ * A set of ROS packages wrapping the [https://trac.lcsr.jhu.edu/cisst CISST libaries]
  * ROS packages that aide in the integration of CISST components with ROS
 
 ==Table of Contents==
