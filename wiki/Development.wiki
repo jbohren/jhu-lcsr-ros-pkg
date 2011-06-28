@@ -105,7 +105,7 @@ $> cd some_stack-trunk
 $> svn up
 }}}
 
-Navigate into the checkout of trunk, and apply the changes from your branch to the local checkout of trunk:
+Apply the changes from your branch to the local checkout of trunk:
 {{{
 $> svn merge --reintegrate https://jhu-lcsr-ros-pkg.googlecode.com/svn/stacks/some_stack/branches/some_stack-an_id 
 }}}
