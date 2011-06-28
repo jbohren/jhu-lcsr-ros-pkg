@@ -1,0 +1,20 @@
+<package>
+  <description brief="cisst_ros_integration">
+
+     cisst_ros_integration
+
+     This package provides components and examples for integrating CISST with a ROS environment and vice-versa.
+
+  </description>
+  <author>Jonathan Bohren</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_ros_integration</url>
+
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+
+  <depend package="cisst_multi_task"/>
+</package>
+
+
