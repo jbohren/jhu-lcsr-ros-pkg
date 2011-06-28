@@ -1,0 +1,14 @@
+<package>
+  <description brief="cisst_interactive">
+
+     cisst_interactive
+
+  </description>
+  <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/cisst_interactive</url>
+
+</package>
+
+
