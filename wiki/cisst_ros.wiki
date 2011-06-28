@@ -1,12 +1,12 @@
 #summary CISST Library integration with ROS
 
-==Table of Contents==
-<wiki:toc max_depth="3"/>
-
 ==Introduction==
 The cisst_ros stack currently provides two functionalities:
  * A ROS package wrapping the [https://trac.lcsr.jhu.edu/cisst CISST libaries]
  * ROS packages that aide in the integration of CISST components with ROS
+
+==Table of Contents==
+<wiki:toc max_depth="3"/>
 
 ==Download & Install==
 The cisst_ros stack can be installed locally by checking out the stack directly from svn.
