@@ -57,7 +57,7 @@ During an _odd cycle_, new features are developed, tested, and refined, and duri
 If a dramatic change in the API is changed, or enough even/odd cycles have happened, the major version is incremented. 
 
 == Branching HOWTO ==
-Branching in svn is not scary. Branches are just copies of code in one part of the repository to some other part of the repository.
+Branching in svn is not scary (any more). Branches are just copies of code in one part of the repository to some other part of the repository.
 
 === Creating a Branch ===
 To make a development branch of a stack's trunk on the server:
