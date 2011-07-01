@@ -7,6 +7,7 @@
     --------------------------------------------------------------------------------
 
     Changelist
+      06-30-11: Blew away proxy packages, Tagged v0.1.3
       06-27-11: Created proxy packages for individual cisst libraries Tagged v0.1.2
       06-14-11: Pushed fixes to build system and docs upstream Tagged v0.1.1
       06-10-11: Initial version v0.1.0
