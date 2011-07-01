@@ -14,7 +14,7 @@
   <depend package="roscpp"/>
   <depend package="std_msgs"/>
 
-  <depend package="cisst_multi_task"/>
+  <depend package="cisst"/>
 </package>
 
 
