@@ -1,0 +1,22 @@
+<stack>
+  <description brief="cisst_ros">
+    cisst_ros
+    
+    Stack for integrating the Computer-Integrated Surgical Systems and Technology (CISST) Libraries with ROS systems and the ROS build system. CISST is a collection of libraries used in realtime sensor processing, computation, and robot control. It is developed by the Lab for Computational Sensing and Robotics at The Johns Hopkins University, in Baltimore, Maryland, USA. For more information about this distribution of the CISST libraries, see the cisst ROS package within this stack.
+
+    --------------------------------------------------------------------------------
+
+    Changelist
+      06-30-11: Blew away proxy packages, Tagged v0.1.3
+      06-27-11: Created proxy packages for individual cisst libraries Tagged v0.1.2
+      06-14-11: Pushed fixes to build system and docs upstream Tagged v0.1.1
+      06-10-11: Initial version v0.1.0
+
+  </description>
+  <author>Anton Deguet, Peter Kazanzides (Stack maintained by Jonathan Bohren)</author>
+  <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://www.ros.org/wiki/cisst_ros</url>
+
+  <depend stack="ros" />
+</stack>
