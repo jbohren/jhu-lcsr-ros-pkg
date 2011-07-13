@@ -26,3 +26,11 @@ libpng:
   ubuntu: libpng12-dev
 libjpeg:
   ubuntu: libjpeg62-dev
+rtai:
+  ubuntu: rtai
+xenomai:
+  ubuntu: libxenomai-dev
+libgretl:
+  ubuntu: libgretl1-dev
+comedi:
+  ubuntu: libcomedi-dev

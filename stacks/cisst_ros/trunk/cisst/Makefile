@@ -44,8 +44,8 @@ all: cisst
 # For more info on how this is used, see http://www.ros.org/wiki/mk
 ################################################################################
 
-# CISST frozen trunk Tarball
-FILENAME = cisst_r2686_trunk.tar.gz
+# CISST trunk r2728 Tarball
+FILENAME = cisst_r2728_trunk.tar.gz
 TARBALL = build/$(FILENAME)
 TARBALL_URL = http://jhu-lcsr-ros-pkg.googlecode.com/files/$(FILENAME)
 SOURCE_DIR = build/source
@@ -74,23 +74,22 @@ CISST_PACKAGE_PATH = $(shell rospack find cisst)
 
 # Generic build args
 CISST_BUILD_ARGS = -D CMAKE_BUILD_TYPE="Release" \
-									 -D CMAKE_INSTALL_PREFIX="$(CISST_PACKAGE_PATH)"
-
-# Executables to build
-CISST_BUILD_BINS_ARGS = -D BUILD_EXAMPLES=OFF \
-											 -D BUILD_TESTS=OFF \
-											 -D BUILD_UTILITIES=ON
+									 -D CMAKE_INSTALL_PREFIX="$(CISST_PACKAGE_PATH)" \
+									 -D BUILD_EXAMPLES=OFF \
+									 -D BUILD_TESTS=OFF \
+									 -D BUILD_UTILITIES=ON
 
 # Different parts of the documentation
 CISST_BUILD_DOC_ARGS = -D BUILD_DOC=OFF \
 											 -D BUILD_DOC_doxygen=ON \
-											 -D BUILD_DOC_release-notes=OFF
+											 -D BUILD_DOC_release-notes=ON
 
 # Specify which CISST libraries are to be built
 # Note that enabling some of these libraries necessitates external dependencies
 # and configuration options (below)
 CISST_BUILD_LIBS_ARGS = -D BUILD_LIBS_cisst3DUserInterfac=OFF \
 												-D BUILD_LIBS_cisstCommon=ON \
+												-D BUILD_LIBS_cisstCommonXML=ON \
 												-D BUILD_LIBS_cisstDevices=ON \
 												-D BUILD_LIBS_cisstInteractive=OFF \
 												-D BUILD_LIBS_cisstMultiTask=ON \
@@ -107,9 +106,11 @@ CISST_BUILD_LIBS_ARGS = -D BUILD_LIBS_cisst3DUserInterfac=OFF \
 CISSTNETLIB_ARGS = -D CISSTNETLIB_DOWNLOAD_NOW=ON \
 									 -D CISSTNETLIB_DOWNLOAD_ARCHITECTURE="$(shell uname -m)"
 
-# Flags for configuring realtime threading
-CISST_REALTIME_ARGS = -D CISST_HAS_LINUX_RTAI=OFF \
-											-D CISST_HAS_LINUX_XENOMAI=OFF
+# Flags for configuring realtime threading libs
+# Note that you can build these libraries without necessarily having the kernel
+# modules / patches, but they will not run realtime.
+CISST_REALTIME_ARGS = -D CISST_HAS_LINUX_RTAI=ON \
+											-D CISST_HAS_LINUX_XENOMAI=ON
 
 # QT configuration
 CISST_QT_ARGS = -D CISST_HAS_QT=ON
@@ -142,13 +143,15 @@ CISST_DEV_ARGS = -D CISST_DEV_HAS_ACCELEGLOVE=OFF \
 								 -D CISST_DEV_HAS_MICRONTRACKER=OFF \
 								 -D CISST_DEV_HAS_NOVINTHDL=OFF \
 								 -D CISST_DEV_HAS_OPENIGTLINK=OFF \
-								 -D CISST_DEV_HAS_ROBOTCOMPONENTS=OFF \
-								 -D CISST_DEV_HAS_RTSOCKETCAN=OFF \
+								 -D CISST_DEV_HAS_ROBOTCOMPONENTS=ON \
+								 -D CISST_DEV_HAS_RTSOCKETCAN=ON \
 								 -D CISST_DEV_HAS_SENSABLEHD=OFF
+
+# Tell CISST where to find OpenCV in ROS
+#OpenCV_ROOT_DIR:=$(shell rospack find opencv2)/opencv
 
 # Concatenate all the CMake arguments
 CMAKE_ARGS = $(CISST_BUILD_ARGS) \
-						 $(CISST_BUILD_BINS_ARGS) \
 						 $(CISST_BUILD_DOC_ARGS) \
 						 $(CISST_BUILD_LIBS_ARGS) \
 						 $(CISSTNETLIB_ARGS) \
@@ -157,13 +160,6 @@ CMAKE_ARGS = $(CISST_BUILD_ARGS) \
 						 $(CISST_ICE_ARGS) \
 						 $(CISST_SVL_ARGS) \
 						 $(CISST_DEV_ARGS)
-
-# Args for just building documentation
-# Turn off all libs, executables, etc
-CMAKE_DOC_TARGET_ARGS = $(CISST_BUILD_ARGS) \
-												-D BUILD_DOC=ON \
-												-D BUILD_DOC_doxygen=ON \
-												-D BUILD_DOC_release-notes=OFF
 
 ################################################################################
 # Build Targets
@@ -175,6 +171,7 @@ CISST_BUILD_DIR = $(SOURCE_DIR)/../build
 # Target to just download and set up the build system
 unpack: $(SOURCE_DIR)/unpacked
 	mkdir -p $(CISST_BUILD_DIR)
+	rm -rf $(SOURCE_DIR)/doc/latex # these don't build without TONS of deps
 
 # Apply the configuration as specified by $(CMAKE_ARGS), above
 # NOTE: This needs to be done twice to incorporate CISSTNetlib
@@ -190,13 +187,13 @@ cisst: configure
 
 # Build doxygen documentation
 doc: unpack
-	cd $(CISST_BUILD_DIR) && cmake $(CMAKE_DOC_TARGET_ARGS) ../source
+	cd $(CISST_BUILD_DIR) && cmake -D BUILD_DOC=ON -D BUILD_DOC_doxygen=ON ../source
 	cd $(CISST_BUILD_DIR) && make && make install
 
 # Remove everything but the installed libraries
 tidy:
-	rm -rf build 
+	rm -rf build
 
 # Remove all build files 
 clean: tidy
-	rm -rf bin include lib share ROS_NOBUILD
+	rm -rf bin include lib share
