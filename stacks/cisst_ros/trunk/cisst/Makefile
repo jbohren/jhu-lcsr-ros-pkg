@@ -44,8 +44,8 @@ all: cisst
 # For more info on how this is used, see http://www.ros.org/wiki/mk
 ################################################################################
 
-# CISST trunk r2728 Tarball
-FILENAME = cisst_r2728_trunk.tar.gz
+# CISST trunk r2729 Tarball
+FILENAME = cisst_r2729_trunk.tar.gz
 TARBALL = build/$(FILENAME)
 TARBALL_URL = http://jhu-lcsr-ros-pkg.googlecode.com/files/$(FILENAME)
 SOURCE_DIR = build/source

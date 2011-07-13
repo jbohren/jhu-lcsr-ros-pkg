@@ -1,6 +1,6 @@
 <package>
   <description brief="cisst">
-    This package contains a recent version of the Computer-Integrated Surgical Systems and Technology (CISST) Libraries. For stability reasons, this package is currently locked to revision r2728 of July 12, 2011. This ROS package does not intend modify CISST in any way, it simpl integrates CISST into the ROS build and package management system since CISST is not available from an OS package manager. However, this package might contain temporary patches to CISST which should not alter the behavior, but facilitate stability for the ROS packages that use it. For more information about the patches applied to CISST, please contact the package maintianer.
+    This package contains a recent version of the Computer-Integrated Surgical Systems and Technology (CISST) Libraries. For stability reasons, this package is currently locked to revision r2729 of July 12, 2011. This ROS package does not intend modify CISST in any way, it simpl integrates CISST into the ROS build and package management system since CISST is not available from an OS package manager. However, this package might contain temporary patches to CISST which should not alter the behavior, but facilitate stability for the ROS packages that use it. For more information about the patches applied to CISST, please contact the package maintianer.
   </description>
   <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
   <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
