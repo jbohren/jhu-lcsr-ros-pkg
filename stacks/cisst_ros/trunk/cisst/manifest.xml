@@ -1,6 +1,6 @@
 <package>
   <description brief="cisst">
-    This package contains a recent version of the Computer-Integrated Surgical Systems and Technology (CISST) Libraries. For stability reasons, this package is currently locked to revision r2686 of June 14, 2011. This ROS package does not intend modify CISST in any way, it simpl integrates CISST into the ROS build and package management system since CISST is not available from an OS package manager. However, this package might contain temporary patches to CISST which should not alter the behavior, but facilitate stability for the ROS packages that use it. For more information about the patches applied to CISST, please contact the package maintianer.
+    This package contains a recent version of the Computer-Integrated Surgical Systems and Technology (CISST) Libraries. For stability reasons, this package is currently locked to revision r2728 of July 12, 2011. This ROS package does not intend modify CISST in any way, it simpl integrates CISST into the ROS build and package management system since CISST is not available from an OS package manager. However, this package might contain temporary patches to CISST which should not alter the behavior, but facilitate stability for the ROS packages that use it. For more information about the patches applied to CISST, please contact the package maintianer.
   </description>
   <author>Anton Deguet, Peter Kazanzides (Package maintained by Jonathan Bohren)</author>
   <license url="http://cisst.org/resources/software/license.txt">CISST (BSD Compatible)</license>  
@@ -36,13 +36,17 @@
   <rosdep name="libdc1394"/>
   <rosdep name="video4linux2"/>
 
+  <rosdep name="rtai"/>
+  <rosdep name="xenomai"/>
+  <rosdep name="libgretl"/>
+
   <!-- middleware deps -->
   <rosdep name="zeroc-ice"/>
 
   <export>
     <cpp
-      cflags="-I${prefix}/include"
-      lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstStereoVisionQt -lcisstStereoVision -lcisstVectorFLTK -lcisstVectorQt -lcisstMultiTaskQt -lcisstCommonQt -lcisstRobot -lcisstDevices -lcisstParameterTypes -lcisstMultiTask -lcisstVectorFLTK -lcisstVector -lcisstOSAbstraction -lcisstCommon -lIce -lxml2"/>
+      cflags="-I${prefix}/include `xeno-config --posix-cflags`"
+      lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstStereoVisionQt -lcisstStereoVision -lcisstVectorFLTK -lcisstVectorQt -lcisstMultiTaskQt -lcisstCommonQt -lcisstRobot -lcisstDevices -lcisstParameterTypes -lcisstMultiTask -lcisstVectorFLTK -lcisstVector -lcisstOSAbstraction -lcisstCommon -lIce -lxml2 -lgretl-1.0 -lnative -lrtdm `xeno-config --posix-ldflags`"/>
     <rosdoc config="rosdoc.yaml"/>
   </export>
 </package>
