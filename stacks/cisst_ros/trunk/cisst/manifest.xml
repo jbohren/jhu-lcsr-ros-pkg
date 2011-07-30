@@ -37,16 +37,19 @@
   <rosdep name="video4linux2"/>
 
   <rosdep name="rtai"/>
-  <rosdep name="xenomai"/>
   <rosdep name="libgretl"/>
 
   <!-- middleware deps -->
   <rosdep name="zeroc-ice"/>
 
+  <!--Disable this if you have a xenomai-enabled kernel-->
+  <!--
+  <rosdep name="xenomai"/>
+  -->
   <export>
     <cpp
-      cflags="-I${prefix}/include `xeno-config --posix-cflags`"
-      lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstStereoVisionQt -lcisstStereoVision -lcisstVectorFLTK -lcisstVectorQt -lcisstMultiTaskQt -lcisstCommonQt -lcisstRobot -lcisstDevices -lcisstParameterTypes -lcisstMultiTask -lcisstVectorFLTK -lcisstVector -lcisstOSAbstraction -lcisstCommon -lIce -lxml2 -lgretl-1.0 -lnative -lrtdm `xeno-config --posix-ldflags`"/>
+      cflags="-I${prefix}/include `/usr/xenomai/bin/xeno-config --posix-cflags`"
+      lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lcisstStereoVisionQt -lcisstStereoVision -lcisstVectorFLTK -lcisstVectorQt -lcisstMultiTaskQt -lcisstCommonQt -lcisstDevices -lcisstParameterTypes -lcisstMultiTask -lcisstRobot -lcisstNumerical -lcisstVectorFLTK -lcisstVector -lcisstOSAbstraction -lcisstCommon -lIce -lxml2 -lgretl-1.0 -lnative -lrtdm `/usr/xenomai/bin/xeno-config --posix-ldflags`"/>
     <rosdoc config="rosdoc.yaml"/>
   </export>
 </package>
