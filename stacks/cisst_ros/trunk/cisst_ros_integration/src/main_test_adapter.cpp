@@ -57,7 +57,11 @@ int main(int argc, char** argv)
 
   // You can use the predefined conversion functions in cisst_ros_integration/conversions.h
   adapter_tsk->add_publisher<std_msgs::Float64, mtsDouble>(
-      nh.advertise<std_msgs::Float64>("/cisst_data",50),
+      "/cisst_data",50,
+      "cisst_data");
+
+  adapter_tsk->add_subscriber<std_msgs::Float64, mtsDouble>(
+      "/cisst_data",50,
       "cisst_data");
 
   /** Or you can give it a conversion function explicitly
