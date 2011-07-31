@@ -1,15 +1,15 @@
 
 /*****************************************************************************
- * main_test_publisher.cpp *
+ * main_test_adapter.cpp *
  * author: Jonathan Bohren 
- * created: June 10th, 2011
+ * created: July 30th, 2011
  *
  * This is a simple program for demonstrating ROS-CISST integration.
  *
  * It creates two CISST periodic tasks, one which increments a double (called
- * "SPEWER"), and one which publishes data over ROS (called "PUBLISHER"). The
- * ROS topic is specified below in this file, and is called "/cisst_data" by
- * defauly. The message type is std_msgs::Float64 (aka double).
+ * "SPEWER"), and one which publishes data over ROS (called "ROS_ADAPTER").
+ * The ROS topic is specified below in this file, and is called "/cisst_data" by
+ * default. The message type is std_msgs::Float64 (aka double).
  *
  * After starting a ROS master and this program, you can view the published
  * messages (a monotonically increasing number) by running:
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
 
   // Create an mtsRosPublisher that publishes data on the topic "cisst_data" at 2Hz
   const double publish_period = 500 * cmn_ms; // in milliseconds
-  mtsRosAdapter * adapter_tsk = new mtsRosAdapter("PUBLISHER",publish_period);
+  mtsRosAdapter * adapter_tsk = new mtsRosAdapter("ROS_ADAPTER",publish_period);
 
   // You can use the predefined conversion functions in cisst_ros_integration/conversions.h
   adapter_tsk->add_publisher<std_msgs::Float64, mtsDouble>(
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
   taskManager->AddComponent(adapter_tsk);
   //
   // Connect the tasks, task.RequiresInterface -> task.ProvidesInterface
-  taskManager->Connect("SPEWER", "PublishInterface", "PUBLISHER", "PublishInterface");
+  taskManager->Connect("SPEWER", "PublishInterface", "ROS_ADAPTER", "PublishInterface");
 
   // Create the task connections
   taskManager->CreateAll();
