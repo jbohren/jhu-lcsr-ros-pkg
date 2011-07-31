@@ -17,7 +17,8 @@
  ***************************************************************************/
 
 // ROS includes
-#include "cisst_ros_integration/mtsRosPublisher.h"
+#include "cisst_ros_integration/mtsRosAdapter.h"
+#include <std_msgs/Float64.h>
 
 // CISST includes
 #include <cisstCommon.h>
@@ -28,6 +29,15 @@
 #include "cisst_ros_integration/DataSpewer.h"
 
 
+std_msgs::Float64 my_convert(const mtsDouble & data) {
+  std_msgs::Float64 msg;
+
+  msg.data = data.GetData();
+
+  return msg;
+}
+
+
 int main(int argc, char** argv)
 {
   // Initialize ROS node
@@ -36,23 +46,34 @@ int main(int argc, char** argv)
 
   // Configure CISST logging
   cmnLogger::SetMask(CMN_LOG_ALLOW_ALL);
-  cmnLogger::AddChannel(std::cout, CMN_LOG_ALLOW_ERRORS_AND_WARNINGS);
 
   // Create a DataSpewer to generate data to publish over ROS
   const double spew_period = 100 * cmn_ms; // in milliseconds
-  DataSpewer * spewer_tsk = new DataSpewer("SPEWER", spew_period, "publish_double");
+  DataSpewer * spewer_tsk = new DataSpewer("SPEWER", spew_period, "cisst_data");
 
   // Create an mtsRosPublisher that publishes data on the topic "cisst_data" at 2Hz
   const double publish_period = 500 * cmn_ms; // in milliseconds
-  mtsRosPublisher * publisher_tsk = new mtsRosPublisher("PUBLISHER", publish_period, "cisst_data");
+  mtsRosAdapter * adapter_tsk = new mtsRosAdapter("PUBLISHER",publish_period);
+
+  // You can use the predefined conversion functions in cisst_ros_integration/conversions.h
+  adapter_tsk->add_publisher<std_msgs::Float64, mtsDouble>(
+      nh.advertise<std_msgs::Float64>("/cisst_data",50),
+      "cisst_data");
+
+  /** Or you can give it a conversion function explicitly
+  adapter_tsk->add_publisher<std_msgs::Float64, mtsDouble>(
+      nh.advertise<std_msgs::Float64>("/cisst_data",50),
+      "cisst_data",
+      &my_convert);
+      **/
 
   // Create CISST task manager
   mtsTaskManager * taskManager = mtsTaskManager::GetInstance();
 
   // Add the tasks to the task manager
   taskManager->AddComponent(spewer_tsk);
-  taskManager->AddComponent(publisher_tsk);
-
+  taskManager->AddComponent(adapter_tsk);
+  //
   // Connect the tasks, task.RequiresInterface -> task.ProvidesInterface
   taskManager->Connect("SPEWER", "PublishInterface", "PUBLISHER", "PublishInterface");
 
@@ -68,7 +89,7 @@ int main(int argc, char** argv)
   taskManager->KillAll();
 
   osaSleep(publish_period * 2);
-  while (!publisher_tsk->IsTerminated()) { osaSleep(publish_period); }
+  while (!adapter_tsk->IsTerminated()) { osaSleep(publish_period); }
   while (!spewer_tsk->IsTerminated()) { osaSleep(spew_period); }
 
   taskManager->Cleanup();
