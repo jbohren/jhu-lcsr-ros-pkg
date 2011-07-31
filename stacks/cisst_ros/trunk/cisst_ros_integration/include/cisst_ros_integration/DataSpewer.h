@@ -34,7 +34,8 @@ public:
 
   DataSpewer(
       const std::string & task_name,
-      double period) :
+      double period,
+      const std::string & pub_cmd) :
     mtsTaskPeriodic(task_name, period, false, 5000),
     data(0)
   {
@@ -48,7 +49,7 @@ public:
     }
 
     // Add the publish function to the command interface
-    if( !publish_interface->AddFunction("publish_double", this->publish_double) ) {
+    if( !publish_interface->AddFunction(pub_cmd.c_str(), this->publish_double) ) {
       ROS_ERROR_STREAM("Could not add command to MTS interface of CISST-ROS publisher.");
       exit(-1);
     }
