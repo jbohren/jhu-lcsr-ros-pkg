@@ -4,19 +4,25 @@
 /*****************************************************************************
  * mtsRosPublisher *
  * author: Jonathan Bohren 
- * created: June 10th, 2011
+ * created: July 30th, 2011
  *
- * This is a simple example of a CISST mtsTaskPeriodic which also publishes
- * data out over ROS. The specific ROS topic that it advertises is given at
- * construction.
+ * This is a CISST mtsTaskPeriodic which can connect CISST interfaces to ROS 
+ * publishers and subscribers.
  *
- * This task provides a CISST interface to its internal ros::Publisher. The
+ * It provides a CISST interface to multiple internal ros::Publishers. The
  * interface is called "PublishInterface" and it provides a single command
- * called "publish_double".
+ * per piublisher.
  *
- * Note that at this point, it can only send out messages of type
- * std_msgs::Float64 (aka double). It is, however, trivial to extend this
- * capability to other datatypes.
+ * It provides a CISST interface to multiple internal ros::Subscribers. The
+ * interface is called "SubscribeInterface" and it sends a single command
+ * per subscriber.
+ *
+ * Note that at this point, it can only send and receive primitive messages
+ * like std_msgs::Float64 (aka double). It is, however, trivial to extend
+ * this capability to other datatypes by defining additional conversions in
+ * cisst_ros_integration/conversions.h or in whichever scope the adapter is
+ * created, adn passing them in on construction of the publishers and
+ * subscribers.
  ***************************************************************************/
 
 // ROS includes
