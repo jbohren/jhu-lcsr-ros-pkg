@@ -2,7 +2,7 @@
 #define __CISST_ROS_INTEGRATION__MTS_ROS_ADAPTER__
 
 /*****************************************************************************
- * mtsRosPublisher *
+ * mtsRosAdapter *
  * author: Jonathan Bohren 
  * created: July 30th, 2011
  *
@@ -122,7 +122,7 @@ public:
     // Create CISST interface for subscribers
     // This interface is activated by callbacks from ROS subscribers and sends commands to CISST components
     subscribe_interface_ = this->AddInterfaceRequired("SubscribeInterface", MTS_OPTIONAL);
-    if( !publish_interface_ ) {
+    if( !subscribe_interface_ ) {
       ROS_ERROR_STREAM("Could not create MTS interface of CISST-ROS subscriber.");
       exit(-1);
     }
@@ -142,7 +142,7 @@ public:
       std::string topic_name,
       uint32_t queue_size,
       std::string cmd_name,
-      ROS_T (*convert_fun)(const MTS_T &) = &cisst_ros_integration::ros_from_mts<ROS_T,MTS_T>)
+      boost::function<ROS_T(const MTS_T &)> convert_fun = &cisst_ros_integration::ros_from_mts<ROS_T,MTS_T>)
   {
     // Announce creation of publisher
     ROS_INFO_STREAM("Connecting CISST-ROS publisher on topic \""<<topic_name<<"\"");
@@ -174,7 +174,7 @@ public:
       std::string topic_name,
       uint32_t queue_size,
       std::string cmd_name,
-      MTS_T (*convert_fun)(const ROS_T &) = &cisst_ros_integration::mts_from_ros<ROS_T,MTS_T>)
+      boost::function<MTS_T(const ROS_T &)> convert_fun = &cisst_ros_integration::mts_from_ros<ROS_T,MTS_T>)
   {
     // Announce creation of publisher
     ROS_INFO_STREAM("Connecting CISST-ROS subscriber on topic \""<<topic_name<<"\"");
