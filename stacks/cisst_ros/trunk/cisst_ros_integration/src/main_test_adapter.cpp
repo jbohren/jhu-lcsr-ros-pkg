@@ -29,10 +29,10 @@
 #include "cisst_ros_integration/DataSpewer.h"
 
 
-std_msgs::Float64 my_convert(const mtsDouble & data) {
+std_msgs::Float64 my_convert(const mtsDouble & data, float offset) {
   std_msgs::Float64 msg;
 
-  msg.data = data.GetData();
+  msg.data = data.GetData() + offset;
 
   return msg;
 }
@@ -64,12 +64,12 @@ int main(int argc, char** argv)
       "/cisst_data",50,
       "cisst_data");
 
-  /** Or you can give it a conversion function explicitly
+  // Or you can give it a conversion function explicitly (and even use boost::bind)
+  double offset = 0.5;
   adapter_tsk->add_publisher<std_msgs::Float64, mtsDouble>(
-      nh.advertise<std_msgs::Float64>("/cisst_data",50),
-      "cisst_data",
-      &my_convert);
-      **/
+      "/cisst_data_offset",50,
+      "cisst_data_offset",
+      boost::bind(my_convert, _1, offset));
 
   // Create CISST task manager
   mtsTaskManager * taskManager = mtsTaskManager::GetInstance();
