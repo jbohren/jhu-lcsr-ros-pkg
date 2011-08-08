@@ -22,6 +22,12 @@ namespace cisst_ros_integration {
 
       return data;
     }
+
+
+  template<typename ROS_T, typename CISST_T>
+    void cisst_to_ros(const CISST_T & data, ROS_T & msg) {
+      msg.data = data.GetData();
+    }
 }
 
 #endif // ifndef __CISST_ROS_INTERFACE_CONVERSIONS_H__
