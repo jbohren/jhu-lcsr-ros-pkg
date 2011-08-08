@@ -17,7 +17,7 @@
  ***************************************************************************/
 
 // ROS includes
-#include "cisst_ros_integration/mtsRosAdapter.h"
+#include "cisst_ros_integration/ros_adapter.h"
 #include <std_msgs/Float64.h>
 
 // CISST includes
