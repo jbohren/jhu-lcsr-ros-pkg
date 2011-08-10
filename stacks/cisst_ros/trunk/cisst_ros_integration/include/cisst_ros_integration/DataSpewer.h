@@ -8,7 +8,7 @@
  *
  * This is a simple CISST mtsTaskPeriodic component which "spews" data over a
  * required interface called "PublishInterface" by calling the function proxy
- * "publish_double".
+ * "push_data".
  *
  * This is simply a command request generator for testing out the ROS-CISST
  * integration.
@@ -26,33 +26,42 @@ class DataSpewer : public mtsTaskPeriodic {
 
 protected:
   // Data storage
-  double data;
+  double data_;
   // CISST proxy to ROS publish function
-  mtsFunctionWrite publish_double;
+  mtsFunctionWrite push_data_;
 
 public:
 
   DataSpewer(
       const std::string & task_name,
       double period,
-      const std::string & pub_cmd) :
+      const std::string & push_cmd,
+      const std::string & pull_cmd) :
     mtsTaskPeriodic(task_name, period, false, 5000),
-    data(0)
+    data_(0)
   {
     // Announce creation of publisher
     ROS_INFO_STREAM("Started data spewer.");
     // Create an interface to local methods
-    mtsInterfaceRequired * publish_interface = this->AddInterfaceRequired("PublishInterface");
-    if( !publish_interface ) {
+    mtsInterfaceRequired * push_interface = this->AddInterfaceRequired("PushInterface");
+    if( !push_interface ) {
       ROS_ERROR_STREAM("Could not create MTS interface of CISST-ROS publisher.");
       exit(-1);
     }
-
+    
     // Add the publish function to the command interface
-    if( !publish_interface->AddFunction(pub_cmd.c_str(), this->publish_double) ) {
-      ROS_ERROR_STREAM("Could not add command to MTS interface of CISST-ROS publisher.");
+    if( !push_interface->AddFunction(push_cmd.c_str(), this->push_data_) ) {
+      ROS_ERROR_STREAM("Could not add push command to MTS interface of CISST-ROS publisher.");
       exit(-1);
     }
+
+    mtsInterfaceProvided * pull_interface = this->AddInterfaceProvided("PullInterface");
+
+    if( !pull_interface->AddCommandRead(&DataSpewer::pull_double, this, pull_cmd.c_str()) ) {
+      ROS_ERROR_STREAM("Could not add pull command to MTS interface of CISST-ROS publisher.");
+      exit(-1);
+    }
+
   }
 
   ~DataSpewer() {};
@@ -66,9 +75,13 @@ public:
     this->ProcessQueuedEvents() ;
 
     // Increment data
-    data++;
+    data_++;
     // Publish data via CISST interface to actual ROS publisher
-    publish_double(data);
+    push_data_(data_);
+  }
+
+  void pull_double(mtsDouble & data) const {
+    data = data_;
   }
 
   void Cleanup(void) {};

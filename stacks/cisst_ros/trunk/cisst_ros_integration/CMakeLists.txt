@@ -33,7 +33,5 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_library(${PROJECT_NAME} src/mtsRosPublisher.cpp src/types.cpp)
 
 # Test program for publishing
-#rosbuild_add_executable(cisst_publisher src/DataSpewer.cpp src/mtsRosPublisher.cpp src/main_test_publisher.cpp)
-#rosbuild_add_executable(cisst_ros_adapter src/DataSpewer.cpp src/mtsRosAdapter.cpp src/main_test_adapter.cpp src/conversions.cpp)
 rosbuild_add_executable(cisst_ros_tasks src/DataSpewer.cpp src/ros_tasks.cpp src/main_test_tasks.cpp src/conversions.cpp)
 #target_link_libraries(cisst_publisher xml2) # moved this into cpp exports of cisst package
