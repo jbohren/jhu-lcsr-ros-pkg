@@ -31,5 +31,5 @@ Once the system dependencies are installed, you can build the cisst and cisst_ro
 rosmake cisst_ros
 }}}
 
-== CISST-ROS Interfaces (Planned) ==
+== Useful CISST-ROS Interfaces (Current and Planned) ==
 [http://jhu-lcsr-ros-pkg.googlecode.com/svn/stacks/cisst_ros/trunk/cisst_ros_integration/doc/cisst_ros_translation.png]
