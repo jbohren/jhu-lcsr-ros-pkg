@@ -23,18 +23,24 @@ int main(int argc, char** argv)
 
   // Create a DataSpewer to generate data to publish over ROS
   const double spew_period = 100 * cmn_ms; // in milliseconds
-  DataSpewer * spewer_tsk = new DataSpewer("SPEWER", spew_period, "cisst_data");
+  DataSpewer * spewer_tsk = new DataSpewer("SPEWER", spew_period, "push_data", "pull_data");
 
   // Create an mtsRosPublisher that publishes data on the topic "cisst_data" at 2Hz
   const double publish_period = 500 * cmn_ms; // in milliseconds
-  mtsRosTaskFromSignal * adapter_tsk = new mtsRosTaskFromSignal("ROS_ADAPTER");
+  mtsRosTaskFromSignal * adapter_tsk = new mtsRosTaskFromSignal("ROS_SIGNAL_ADAPTER");
+  mtsRosTaskPeriodic * adapter_tsk2 = new mtsRosTaskPeriodic("ROS_PERIODIC_ADAPTER",publish_period);
 
   // Create an adapter to publish to "/cisst_data"
-  WriteRosPublisherAdapter<std_msgs::Float64, mtsDouble> write_adapter(
-      "cisst_data",
+  CmdWritePublisherAdapter<std_msgs::Float64, mtsDouble> write_adapter(
+      "push_data",
       "/cisst_data",50);
 
+  FcnReadPublisherAdapter<std_msgs::Float64, mtsDouble> read_adapter(
+      "pull_data",
+      "/cisst_data_too",50);
+
   adapter_tsk->add_publisher(write_adapter);
+  adapter_tsk2->add_publisher(read_adapter);
 
   // Create CISST task manager
   mtsTaskManager * taskManager = mtsTaskManager::GetInstance();
@@ -42,9 +48,11 @@ int main(int argc, char** argv)
   // Add the tasks to the task manager
   taskManager->AddComponent(spewer_tsk);
   taskManager->AddComponent(adapter_tsk);
+  taskManager->AddComponent(adapter_tsk2);
   //
   // Connect the tasks, task.RequiresInterface -> task.ProvidesInterface
-  taskManager->Connect("SPEWER", "PublishInterface", "ROS_ADAPTER", "ProvidedInterface");
+  taskManager->Connect("SPEWER", "PushInterface", "ROS_SIGNAL_ADAPTER", "ProvidedAdapter");
+  taskManager->Connect("SPEWER", "PullInterface", "ROS_PERIODIC_ADAPTER", "RequiredAdapter");
 
   // Create the task connections
   taskManager->CreateAll();

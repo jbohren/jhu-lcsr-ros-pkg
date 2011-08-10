@@ -6,27 +6,14 @@
 #include <cisstMultiTask/mtsGenericObjectProxy.h>
 
 namespace cisst_ros_integration {
-  template<typename ROS_T, typename MTS_T>
-    ROS_T ros_from_mts(const MTS_T & data) {
-      ROS_T msg;
-
-      msg.data = data.GetData();
-
-      return msg;
-    }
-
-  template<typename ROS_T, typename MTS_T>
-    MTS_T mts_from_ros(const ROS_T & msg) {
-
-      MTS_T data(msg.data);
-
-      return data;
-    }
-
-
   template<typename ROS_T, typename CISST_T>
     void cisst_to_ros(const CISST_T & data, ROS_T & msg) {
       msg.data = data.GetData();
+    }
+
+  template<typename ROS_T, typename CISST_T>
+    void ros_to_cisst(const ROS_T & msg, CISST_T & data) {
+      data = msg.data;
     }
 }
 
