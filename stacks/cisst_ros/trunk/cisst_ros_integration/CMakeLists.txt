@@ -30,8 +30,9 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #target_link_libraries(example ${PROJECT_NAME})
 
 # CISST-ROS bridge
-#rosbuild_add_library(${PROJECT_NAME} src/mtsRosPublisher.cpp src/types.cpp)
+rosbuild_add_library(CisstRosIntegration src/ros_tasks.cpp src/conversions.cpp)
 
 # Test program for publishing
-rosbuild_add_executable(cisst_ros_tasks src/DataSpewer.cpp src/ros_tasks.cpp src/main_test_tasks.cpp src/conversions.cpp)
+rosbuild_add_executable(cisst_ros_tasks src/DataSpewer.cpp src/main_test_tasks.cpp )
+target_link_libraries(cisst_ros_tasks CisstRosIntegration)
 #target_link_libraries(cisst_publisher xml2) # moved this into cpp exports of cisst package
