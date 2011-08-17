@@ -294,7 +294,7 @@ public:
       std::string ros_topic_name,
       uint32_t ros_queue_size,
       ros::NodeHandle ros_node_handle = ros::NodeHandle()) :
-    sub_(ros_node_handle.subscribe<ROS_T>(
+    sub_(ros_node_handle.subscribe(
           ros_topic_name, ros_queue_size,
           &FcnVoidSubscriberAdapter::receive, this)),
     cisst_cmd_name_(cisst_cmd_name),
@@ -324,7 +324,7 @@ private:
   ros::Subscriber sub_;
   std::string cisst_cmd_name_;
   std::string ros_topic_name_;
-  mtsFunctionWrite cisst_function_;
+  mtsFunctionVoid cisst_function_;
 };
 
 template <typename ROS_T, typename CISST_RES_T>
@@ -337,7 +337,7 @@ public:
       uint32_t ros_queue_size,
       ros::NodeHandle ros_node_handle = ros::NodeHandle(),
       boost::function<void(const ROS_T &, CISST_RES_T &)> convert_fun = &cisst_ros_integration::ros_to_cisst<ROS_T,CISST_RES_T>) : 
-    sub_(ros_node_handle.subscribe<ROS_T>(
+    sub_(ros_node_handle.subscribe(
           ros_topic_name, ros_queue_size,
           &FcnWriteSubscriberAdapter::receive, this)),
     cisst_cmd_name_(cisst_cmd_name),
@@ -399,6 +399,12 @@ public:
   {
     pub_adapter.init(required_interface_, provided_interface_);
     publishers_.push_back(&pub_adapter);
+  }
+
+  void add_subscriber(RosSubscriberAdapter & sub_adapter)
+  {
+    sub_adapter.init(required_interface_, provided_interface_);
+    subscribers_.push_back(&sub_adapter);
   }
 
   mtsInterfaceRequired *required_interface_;
