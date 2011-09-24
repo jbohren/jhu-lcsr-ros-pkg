@@ -1,0 +1,10 @@
+time t
+duration deltat
+float64 pot1
+float64 pot2
+float64 force
+float64 pot1_setpoint
+float64 pot1_raw
+float64 pot2_raw
+float64 force_raw
+bool button

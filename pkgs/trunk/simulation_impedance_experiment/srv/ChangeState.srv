@@ -1,0 +1,10 @@
+int32 state
+int32 trial_number
+int32 nTrials
+int32 trial_length
+int32 set_type
+bool visual
+bool vibrotactile
+bool skin_stretch
+---
+
