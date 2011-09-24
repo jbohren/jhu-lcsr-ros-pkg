@@ -1,0 +1,11 @@
+int32 task
+int32 subjectNumber
+int32 trialNumber
+int32 setNumber
+int32 set_type
+bool visual
+bool vibrotactile
+bool skin_stretch
+float32 direction
+---
+
