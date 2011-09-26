@@ -1,0 +1,32 @@
+#summary variable-impedance virtual prosthesis experiment code
+
+= Introduction =
+
+This package contains the code needed to run the virtual prosthesis experiment associated with the following paper submitted to ICRA 2012:
+
+A. Blank, A. M. Okamura, and L. L. Whitcomb. User comprehension of task performance with varying impedance in a virtual prosthetic arm. IEEE International Conference on Robotics and Automation, 2012. Submitted.
+
+
+= Details =
+
+_Under construction!_
+
+== Requirements ==
+
+Hardware:
+  * Two data acquisition cards with analog input and output, for example, [http://www.mccdaq.com/pci-data-acquisition/PCI-DAS6014.aspx here]. (Code can be easily modified to use one card, if it has enough output pins.)
+  
+
+Software:
+  * [http://www.comedi.org Comedi] - to interface with two data acquisition cards for controlling hardware
+  * [http://www.opengl.org OpenGL] with [http://www.opengl.org/resources/libraries/glut/ GLUT] - for graphics.
+
+== Download ==
+
+== Build ==
+
+== Run ==
+
+== Support==
+
+For more information, email ablank2@jhu.edu.
