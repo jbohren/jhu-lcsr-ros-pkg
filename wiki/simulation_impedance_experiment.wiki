@@ -15,17 +15,39 @@ _Under construction!_
 
 Hardware:
   * Two data acquisition cards with analog input and output, for example, [http://www.mccdaq.com/pci-data-acquisition/PCI-DAS6014.aspx here]. (Code can be easily modified to use one card, if it has enough output pins.)
-  
 
 Software:
-  * [http://www.comedi.org Comedi] - to interface with two data acquisition cards for controlling hardware
-  * [http://www.opengl.org OpenGL] with [http://www.opengl.org/resources/libraries/glut/ GLUT] - for graphics.
+  * [http://www.comedi.org Comedi]
+  * [http://www.opengl.org OpenGL] with [http://www.opengl.org/resources/libraries/glut/ GLUT]
+  * [http://www.gnu.org/s/gsl/ GSL]
 
 == Download ==
 
+To check out this package from svn, 
+{{{
+svn checkout http://jhu-lcsr-ros-pkg.googlecode.com/svn/pkgs/trunk/simulation_impedance_experiment simulation_impedance_experiment
+}}}
+
 == Build ==
 
+{{{
+rosdep install simulation_impedance_experiment
+}}}
+
+{{{
+rosmake simulation_impedance_experiment
+}}}
+
 == Run ==
+
+The experiment uses four nodes, which should be started in this order:
+
+  * daq - interfaces with data acquisition card for reading force sensor input and providing tactor output
+  * simulation - simulates 1-dof virtual prosthesis and handles data logging
+  * graphics - provides visual feedback and instructions to the experiment subject
+  * experiment_manager - 
+
+Something about data logging format...
 
 == Support==
 
