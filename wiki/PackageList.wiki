@@ -1,3 +1,5 @@
 #summary List of hosted packages
 
 = Packages =
+
+ * [simulation_impedance_experiment simulation_impedance_experiment] - package containing code to run virtual prosthesis experiment (associated with paper submitted to ICRA 2012 by Blank, et al.)
