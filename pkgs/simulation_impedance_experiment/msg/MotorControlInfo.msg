@@ -1,0 +1,12 @@
+float32 deltat
+float32 setpoint
+float32 pot1
+float32 e
+float32 ed
+float32 eint
+float32 setpointold
+float32 pot1old
+float32 eold
+float32 edold
+float32 eintold
+float32 command_volts
