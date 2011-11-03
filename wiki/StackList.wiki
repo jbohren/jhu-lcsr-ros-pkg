@@ -1,0 +1,3 @@
+#summary List of stacks
+
+ * [cisst_ros cisst_ros] - CISST library package and ROS interfaces
