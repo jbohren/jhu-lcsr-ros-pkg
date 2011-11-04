@@ -1,0 +1,18 @@
+<package>
+  <description brief="simulation_impedance_experiment">
+
+     simulation_impedance_experiment
+
+  </description>
+  <author>ablank</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/simulation_impedance_experiment</url>
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+  <depend package="std_msgs"/>
+  <depend package="std_srvs"/>
+
+</package>
+
+
