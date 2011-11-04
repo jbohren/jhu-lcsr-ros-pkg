@@ -1,4 +1,0 @@
- - builder: rosmake
- - builder: external
-   external_url: https://trac.lcsr.jhu.edu/cisst/wiki
-   external_label: Tutorials and high-level documentation
