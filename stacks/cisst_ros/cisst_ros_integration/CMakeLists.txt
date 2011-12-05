@@ -34,5 +34,5 @@ rosbuild_add_library(CisstRosIntegration src/ros_tasks.cpp src/conversions.cpp)
 
 # Test program for publishing
 rosbuild_add_executable(cisst_ros_tasks src/DataSpewer.cpp src/main_test_tasks.cpp )
-target_link_libraries(cisst_ros_tasks CisstRosIntegration)
+target_link_libraries(cisst_ros_tasks CisstRosIntegration cisstMultiTask)
 #target_link_libraries(cisst_publisher xml2) # moved this into cpp exports of cisst package

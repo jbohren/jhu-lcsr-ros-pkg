@@ -11,41 +11,8 @@
   <depend package="opencv2"/>
 
   <!-- Build system deps -->
-  <rosdep name="cmake"/>
-  <rosdep name="doxygen"/>
+  <rosdep name="cisst"/>
 
-  <!-- Core C++ deps -->
-  <rosdep name="libxml2"/>
-  <rosdep name="cppunit"/>
-
-  <!-- Python deps -->
-  <rosdep name="swig"/>
-  <rosdep name="python"/>
-
-  <!-- GUI deps -->
-  <rosdep name="wxwidgets"/>
-  <rosdep name="fltk"/>
-  <rosdep name="fluid"/>
-  <rosdep name="qt4"/>
-
-  <!-- StereoVision deps -->
-  <rosdep name="libjpeg"/>
-  <rosdep name="zlib"/>
-  <rosdep name="libpng"/>
-  <rosdep name="ffmpeg"/>
-  <rosdep name="libdc1394"/>
-  <rosdep name="video4linux2"/>
-
-  <rosdep name="rtai"/>
-  <rosdep name="libgretl"/>
-
-  <!-- middleware deps -->
-  <rosdep name="zeroc-ice"/>
-
-  <!--Disable this if you have a xenomai-enabled kernel-->
-  <!--
-  <rosdep name="xenomai"/>
-  -->
   <export>
     <cpp
       cflags="-I${prefix}/include `/usr/xenomai/bin/xeno-config --posix-cflags`"
