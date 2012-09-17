@@ -1,0 +1,13 @@
+To run experiment, use the roslaunch file as follows:
+
+  roslaunch wam_impedance_experiment experiment.launch
+
+This will default to subject number 0.  To specify a subject number, use the following:
+
+  roslaunch simulation_impedance_experiment experiment.launch n:=1
+
+In this example, the subject number is set to 1.  
+
+(RECOMMENDED) To print node output to the terminal, add the --screen option:
+
+  roslaunch simulation_impedance_experiment experiment.launch n:=1 --screen

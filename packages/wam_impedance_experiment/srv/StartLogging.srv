@@ -1,0 +1,10 @@
+int32 task
+int32 subjectNumber
+int32 trialNumber
+int32 setNumber
+int32 set_type
+float32 direction
+float32 admittance
+float32 deadband
+---
+

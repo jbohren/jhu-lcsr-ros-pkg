@@ -1,0 +1,41 @@
+calibration 7/10/2012 for (1) Omega LCCA-50 force sensor, S/N 70000730
+                      and (2) Omega LCCA-50 force sensor, S/N 668718
+
+
+simple linear regression in matlab for each data set to find slopes.
+use volts as the y axis, weight as the x axis.
+we're just interested in the slope here, because the the force sensor will be re-zeroed every time the experiment runs.
+
+matlab code:
+  y = mean(data,2);
+  x = [weight, ones(size(weight))];
+  A = pinv(x)*y
+
+A(1) is the slope and A(2) is the intercept.
+
+----------------------------------------------------------------------
+Omega sensor 1 (user input)
+
+gain is set at 100
+
+slopes magnitude
+  compression: -0.135238
+  tension: 0.135579
+  average magnitude: 0.13541
+
+sign
+  want compression positive, so switch signs.
+
+----------------------------------------------------------------------
+Omega sensor 2 (environment force - between wams)
+
+gain is set at 100
+
+
+slopes magnitude
+  compression: -0.135916
+  tension: 0.136189
+  average magnitude: 0.13605
+
+sign
+  want compression negative, so keep signs.
