@@ -1,0 +1,115 @@
+FOR EXPERIMENT MANAGER
+
+~       - toggle debug mode
+E       - send ctrl enable message
+W       - ('write') start or stop data logging
+Z       - zero user input force sensor (debug mode only)
+X       - zero environment force sensor (debug mode only)
+BANG    - put both wams in gravity comp (debug mode only)
+SHIFT+Q - quit graphics node
+ESC     - quit all (debug mode only)
++       - shift graphics up (debug mode or graphicsCalibration1 state only)
+-       - shift graphics down (debug mode or graphicsCalibration1 state only)
+[       - scale graphics down (debug mode or graphicsCalibration2 state only)
+]       - scale graphics up (debug mode or graphicsCalibration2 state only)
+G       - print graphics calibration to screen
+
+rating state:
+
+1 - enter a rating of 1 in rating state
+2 - enter a rating of 2 in rating state
+3 - enter a rating of 3 in rating state
+4 - enter a rating of 4 in rating state
+5 - enter a rating of 5 in rating state
+
+state machine:
+
+ENTER   - advance state machine
+SPACE   - advance state machine (debug mode only)
+N       - next trial (debug mode only)
+P       - previous trial (debug mode only)
+SHIFT+N - next set (debug mode only)
+SHIFT+P - go to first trial of current set or last trial of previous set (debug mode only)
+
+----------
+
+
+
+FOR CTRLENABLER
+
+
+mode:
+
+! - toggle gain tuning mode (off, Rn, SE3)
+
+
+gain tuning mode:
+
+1 - select P gain in joint 1 or x position or nullspace
+2 - select P gain in joint 2 or y position or friction
+3 - select P gain in joint 3 or z position
+4 - select P gain in joint 4 or x orientation
+5 - select P gain in joint 5 or y orientation
+6 - select P gain in joint 6 or z orientation
+7 - select P gain in joint 7
+A - select D gain in joint 1 or x position or nullspace
+S - select D gain in joint 2 or y position
+D - select D gain in joint 3 or z position
+F - select D gain in joint 4 or x orientation
+G - select D gain in joint 5 or y orientation
+H - select D gain in joint 6 or z orientation
+J - select D gain in joint 7
++ - increment selected gain
+- - decrement selected gain
+
+
+state machine:
+
+SPACE/ENTER - advance state
+T - switch task (tracking or forcemin)
+Y - switch set type (training, practice, experiment)
+P - start/stop projectiles
+
+
+trajectories:
+
+1 - stationary (trajectory 1)
+2 - setpoints Rn (trajectory 2)
+3 - setpoints SE3 (trajectory 3)
+4 - user input (trajectory 4)
+5 - sinusoid (trajectory 5)
+N - next setpoint
++ - set direction = 1
+- - set direction = -1
+
+
+controllers:
+
+E - enable controller
+6 - gravity compensation (controller 1)
+7 - computed torque Rn (controller 2)
+8 - impedance SE3 (controller 3)
+9 - impedance SE3 plus nullspace PD (controller 4)
+0 - impedance SE3 plus nullspace PD plus friction comp (controller 5)
+
+
+switching between wams:
+
+R - select right wam
+L - select left wam
+
+
+logging:
+
+W - ('write') start or stop data logging
+
+
+other:
+
+Z - zero user input force sensor (debug mode only)
+X - zero environment force sensor (debug mode only)
+Q - quit graphics
+ESC - quit all
+
+
+

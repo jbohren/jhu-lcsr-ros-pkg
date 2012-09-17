@@ -1,0 +1,27 @@
+<package>
+  <description brief="wam_impedance_experiment">
+
+     wam_impedance_experiment
+
+  </description>
+  <author>ablank</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/wam_impedance_experiment</url>
+
+  <depend package="cisst"/>
+  <depend package="cisst_ros_integration"/>
+
+  <depend package="sensor_msgs"/>
+
+  <depend package="roscpp"/>
+  <depend package="roslib"/>
+
+  <depend package="std_msgs"/>
+  <depend package="std_srvs"/>
+
+  <rosdep name="comedi"/>
+
+</package>
+
+

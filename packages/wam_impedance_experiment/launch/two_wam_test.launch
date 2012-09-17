@@ -1,0 +1,17 @@
+<launch>
+
+  <arg name="n" default="0"/>
+
+  <param name="subjectNumber" value="$(arg n)" />
+  <param name="userRadius" value="0.007" />
+
+  <node pkg="wam_impedance_experiment" name="daq" type="daq"/>
+  <node pkg="wam_impedance_experiment" name="wam_control" type="two_wam_control"/>
+  <node pkg="wam_impedance_experiment" name="logger" type="logger"/>
+  <node pkg="wam_impedance_experiment" name="ctrlenabler" type="ctrlenabler"/>
+  <!-- Removed so the graphics can be run on a different machine.
+  <node pkg="wam_impedance_experiment" name="graphics" type="graphics"/>
+  -->
+  <node pkg="wam_impedance_experiment" name="projectiles" type="projectiles"/>
+
+</launch>
